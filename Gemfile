@@ -7,6 +7,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rspec-rails'
 gem 'shoulda-matchers'
 gem 'rspec'
+gem 'devise'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
