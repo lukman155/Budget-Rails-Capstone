@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(resource_or_scope)
+  def after_sign_in_path_for(_resource_or_scope)
     category_path(current_user.id)
   end
 
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     # Specify the path to redirect the user after successful logout
     root_path
   end

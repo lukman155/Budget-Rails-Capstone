@@ -1,8 +1,7 @@
- /* Navbar styles */
- nav {
-  background-color: #3878C2;
+/* Navbar styles */
+nav {
+  background-color: #3878c2;
 }
-
 
 #menuToggle {
   display: flex;
@@ -14,8 +13,7 @@
   user-select: none;
 }
 
-#menuToggle input
-{
+#menuToggle input {
   display: flex;
   width: 40px;
   height: 32px;
@@ -25,73 +23,66 @@
   z-index: 2;
 }
 
-#menuToggle span
-{
+#menuToggle span {
   display: flex;
   width: 29px;
   height: 2px;
   margin-bottom: 5px;
   position: relative;
-  background: #ffffff;
+  background: #fff;
   border-radius: 3px;
   z-index: 1;
-  transform-origin: 5px 0px;
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+  transform-origin: 5px 0;
+  transition:
+    transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
-{
+#menuToggle span:first-child {
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
+#menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
 
-#menuToggle input:checked ~ span
-{
+#menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-3px, -1px);
-  background: #36383F;
+  background: #36383f;
 }
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
+#menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-#menu
-{
+#menu {
   position: absolute;
   width: 2000px;
   height: 400px;
-  box-shadow: 0 0 10px #85888C;
+  box-shadow: 0 0 10px #85888c;
   margin: -50px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background-color: #F5F6FA;
+  background-color: #f5f6fa;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-#menu li
-{
+#menu li {
   padding: 10px 0;
   transition-delay: 2s;
 }
 
-#menuToggle input:checked ~ ul
-{
+#menuToggle input:checked ~ ul {
   transform: none;
 }
 
@@ -115,12 +106,12 @@
   letter-spacing: 2px;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(to right, #ffffff80 0%, #464747ea #f9f9f9e4 100%);
   transition: width 0.4s ease-in-out, opacity 0.7s ease-in-out;
   outline: none;
   z-index: 10;
   cursor: pointer;
 }
+
 .search:focus {
   width: 300px;
   opacity: 1;
@@ -130,7 +121,7 @@
 i {
   position: relative;
   left: -37px;
-  color: #ffffff;
+  color: #fff;
   z-index: 2;
 }
 
