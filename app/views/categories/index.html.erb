@@ -1,12 +1,22 @@
+<style>
+
+  #card-bdy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+</style>
+
 <div id="categories">
   <% @categories.each do |category| %>
     <%= link_to category_bills_path(category), class: "card my-4", style: "text-decoration: none; color: #555;" do %>
-      <div class="card-body">
+      <div class="card-body" id="card-bdy">
         <div class="icon">
           <i class="material-icons"><%= category.icon %></i>
         </div>
         <h2 class="card-title"><%= category.name %></h2>
-        <p class="card-text">Total Amount: <%= category.bills.sum(:amount) %></p>
+        <p class="card-text">&dollar;<%= category.bills.sum(:amount) %></p>
       </div>
     <% end %>
   <% end %>
