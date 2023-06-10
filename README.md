@@ -1,4 +1,4 @@
-# Budget App Rails
+# Budget Rails Capstone
 
 - [Budget App](#budget-app)
 - [Budget App ](#budget-app-)
@@ -28,7 +28,7 @@
 
 ## video demo 🎥
 
-[Video demo here](https://www.loom.com/share/1b2427fb867c4e1c8d2419d57991c1f4)
+[Video demo here](https://www.loom.com/share/1d7eeff690bf43599fdb8f390811d850)
 
 ## Render Deploy 🚀
 
