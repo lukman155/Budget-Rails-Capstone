@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
 <div id="categories">
   <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
+    <%= link_to category_bills_path(category), class: "card my-4", style: "text-decoration: none; color: #555;" do %>
+      <div class="card-body">
+        <h2 class="card-title"><%= category.name %></h2>
+        <p class="card-text">Total Amount: <%= category.bills.sum(:amount) %></p>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New category", new_category_path %>
+<div class="d-flex justify-content-end">
+  <%= link_to "New category", new_category_path, class: "new-bill-button"  %>
+</div>

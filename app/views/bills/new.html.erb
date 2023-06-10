@@ -1,9 +1,10 @@
 <h1>New bill</h1>
 
-<%= render "form", bill: @bill %>
+<%= render 'form', category: @category, bill: @bill %>
 
 <br>
 
 <div>
-  <%= link_to "Back to bills", bills_path %>
+  <%= link_to "Back to bills", category_bills_path(params[:category_id]) %>
 </div>
+

@@ -1,22 +1,6 @@
-<div id="<%= dom_id bill %>">
-  <p>
-    <strong>Name:</strong>
-    <%= bill.name %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= bill.amount %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= bill.author_id %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= bill.category_id %>
-  </p>
-
+<div id="<%= dom_id bill %>" class="card my-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= bill.name %></h5>
+    <p class="card-text"><strong>Amount:</strong> <%= bill.amount %></p>
+  </div>
 </div>
