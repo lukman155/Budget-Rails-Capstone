@@ -1,0 +1,38 @@
+<style>
+  .menu1 > li > a {
+    text-decoration: none;
+  }
+
+  .menu1 >li > a:hover {
+    font-size: 2em
+  }
+  
+</style>
+
+<nav class="navbar">
+  <div class="navbar__menu-container">
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu" class="menu1">
+          <li><%= link_to "Home", category_path(current_user.id) %></li>
+          <li><%= link_to "Profile", edit_user_path(current_user) %></li>
+          <li><a href="#">About</a></li>
+          <li><%= link_to "Log out", destroy_user_session_path(id: current_user.id), method: :delete %></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="navbar__title-container">
+    <h1 class="navbar__title"><%= controller_name.capitalize %></h1>
+  </div>
+
+  <div class="navbar__search-container">
+    <input placeholder='Search...' class='search js-search' type="text">
+    <i class="fa fa-search"></i>
+  </div>
+</nav>
