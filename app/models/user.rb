@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bills, foreign_key: 'author_id'
   has_many :categories
+
+  validates :name, presence: true
 end
