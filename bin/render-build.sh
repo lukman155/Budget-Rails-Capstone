@@ -1,11 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# exit on error
+set -o errexit
 
-echo "Running build process..."
-
-# Install dependencies
 bundle install
-
-# Precompile assets
 bundle exec rake assets:precompile
-
-echo "Build process completed."
+bundle exec rake assets:clean
+bundle exec rake db:migrate
