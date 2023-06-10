@@ -4,6 +4,9 @@
   Back
 <% end %>
 
+<% total_amount = @bills.sum(:amount) %>
+<h2 class="card-text text-center">Total Amount: <%= total_amount %></h2>
+
 <div class="container mt-4">
   <%= link_to category_bills_path(@category), style: "text-decoration: none; color: #555;" do %>
     <ul class="list-group">

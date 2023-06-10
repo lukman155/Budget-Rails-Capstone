@@ -16,10 +16,10 @@
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
-  </div>
+  <div class="field">
+  <%= form.label :icon %><br />
+  <%= form.select :icon, options_for_select(["account_circle", "shopping_cart", "favorite"], selected: @category.icon), class: "form-control" %>
+</div>
 
   <div>
     <%= form.submit %>

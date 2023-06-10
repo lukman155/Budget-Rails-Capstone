@@ -6,7 +6,7 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @category = Category.find(params[:category_id])
-    @bills = @category.bills
+    @bills = @category.bills.order(created_at: :desc)
   end
 
   # GET /bills/1
