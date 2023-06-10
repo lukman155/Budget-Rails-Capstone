@@ -1,31 +1,36 @@
 class BillsController < ApplicationController
-  before_action :set_bill, only: %i[ show edit update destroy ]
+  before_action :set_category
+  before_action :set_bill, only: [:show, :edit, :update, :destroy]
 
-  # GET /bills or /bills.json
+  # GET /bills
+  # GET /bills.json
   def index
-    @bills = Bill.all
-  end
+    @category = Category.find(params[:category_id])
+    @bills = @category.bills
+  end  
 
-  # GET /bills/1 or /bills/1.json
+  # GET /bills/1
+  # GET /bills/1.json
   def show
   end
 
   # GET /bills/new
   def new
-    @bill = Bill.new
+    @bill = @category.bills.build
   end
 
   # GET /bills/1/edit
   def edit
   end
 
-  # POST /bills or /bills.json
+  # POST /bills
+  # POST /bills.json
   def create
-    @bill = Bill.new(bill_params)
+    @bill = @category.bills.build(bill_params)
 
     respond_to do |format|
       if @bill.save
-        format.html { redirect_to bill_url(@bill), notice: "Bill was successfully created." }
+        format.html { redirect_to category_bill_path(@category, @bill), notice: "Bill was successfully created." }
         format.json { render :show, status: :created, location: @bill }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +39,12 @@ class BillsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bills/1 or /bills/1.json
+  # PATCH/PUT /bills/1
+  # PATCH/PUT /bills/1.json
   def update
     respond_to do |format|
       if @bill.update(bill_params)
-        format.html { redirect_to bill_url(@bill), notice: "Bill was successfully updated." }
+        format.html { redirect_to category_bill_path(@category, @bill), notice: "Bill was successfully updated." }
         format.json { render :show, status: :ok, location: @bill }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,24 +53,33 @@ class BillsController < ApplicationController
     end
   end
 
-  # DELETE /bills/1 or /bills/1.json
+  # DELETE /bills/1
+  # DELETE /bills/1.json
   def destroy
+    @bill = Bill.find(params[:id])
     @bill.destroy
-
+  
     respond_to do |format|
-      format.html { redirect_to bills_url, notice: "Bill was successfully destroyed." }
+      format.html { redirect_to category_bills_path(@category), notice: "Bill was successfully destroyed." }
       format.json { head :no_content }
     end
   end
+  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bill
-      @bill = Bill.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bill_params
-      params.require(:bill).permit(:name, :amount, :author_id, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = Category.find(params[:category_id])
+  end
+
+  def set_bill
+  @bill = @category.bills.find(params[:id])
+  redirect_to category_bills_path(@category) unless @bill
+end
+
+  # Only allow a list of trusted parameters through.
+  def bill_params
+    params.require(:bill).permit(:name, :amount, :author_id)
+  end
 end
