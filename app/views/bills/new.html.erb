@@ -1,0 +1,10 @@
+<h1>New bill</h1>
+
+<%= render 'form', category: @category, bill: @bill %>
+
+<br>
+
+<div>
+  <%= link_to "Back to bills", category_bills_path(params[:category_id]) %>
+</div>
+

@@ -1,0 +1,25 @@
+<p><%= notice %></p>
+
+<%= link_to category_path(current_user.id), class: "btn btn-primary btn-lg", style: "text-decoration: none;" do %>
+  Back
+<% end %>
+
+<% total_amount = @bills.sum(:amount) %>
+<h2 class="card-text text-center">Total Amount: <%= total_amount %></h2>
+
+<div class="container mt-4">
+  <%= link_to category_bills_path(@category), style: "text-decoration: none; color: #555;" do %>
+    <ul class="list-group">
+      <% @bills.each do |bill| %>
+        <li class="list-group-item bg-white mb-3">
+          <h4 class="mb-1"><%= link_to bill.name, category_bill_path(@category, bill), style: "text-decoration: none; color: #555;" %></h4>
+          <p class="mb-1"><strong>Amount:</strong> <%= bill.amount %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="d-flex justify-content-end">
+  <%= link_to "New bill", new_category_bill_path(@category), class: "new-bill-button"  %>
+</div>
